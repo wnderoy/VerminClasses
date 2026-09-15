@@ -1,25 +1,36 @@
 window.VERMIN_DATA = {
-  "generated": "2026-09-15T12:15:45.454Z",
+  "generated": "2026-09-15T14:47:02.710Z",
   "source": "/home/wnder/Documents/repos/obsVault",
   "tags": [
     "Ace",
+    "Action-economy",
     "Attack",
+    "Buff",
+    "Burst",
+    "Combo",
     "Crit",
+    "Crowd-control",
     "Darkness",
     "Debuff",
     "Deck-manipulation",
     "Defense",
     "Discard",
     "Draw",
+    "Execute",
     "Exploit",
     "Frost",
+    "Intel",
+    "Maneuver",
     "MV",
     "Overfill",
     "Radiance",
     "Retaliation",
     "Sacrifice",
+    "Splash",
     "Summon",
     "Support",
+    "Synergy",
+    "Trap",
     "Versatility"
   ],
   "keywords": [
@@ -621,7 +632,158 @@ window.VERMIN_DATA = {
       "mechanic": "If you draw after attacking, you are able to add any 2, 3 or a matching attacking card to the attack, adding MV to the attack. this will triger another draw. max 2 reflexes per turn",
       "playstyle": "",
       "ratings": [],
-      "skills": []
+      "skills": [
+        {
+          "name": "Centering Breath",
+          "file": "Centering Breath",
+          "tier": 1,
+          "trigger": "Preparation",
+          "tags": [
+            "Deck-manipulation"
+          ],
+          "effect": "During Preparation, swap a card of rank 4 or higher from your hand with any 2 or 3 currently resting in the Death deck."
+        },
+        {
+          "name": "Deflecting Palm",
+          "file": "Deflecting Palm",
+          "tier": 1,
+          "trigger": "Reaction",
+          "tags": [
+            "Defense"
+          ],
+          "effect": "Playing a 2 or 3 of Clubs while defending allows you to redirect the incoming attack away from yourself to another valid target."
+        },
+        {
+          "name": "Harmonic Chain",
+          "file": "Harmonic Chain",
+          "tier": 1,
+          "trigger": "Attack",
+          "tags": [
+            "Synergy"
+          ],
+          "effect": "If a chained card matches the exact suit of the initial attack card, trigger that suit's primary effect at full value."
+        },
+        {
+          "name": "Iron Body",
+          "file": "Iron Body",
+          "tier": 1,
+          "trigger": "Attack",
+          "tags": [
+            "Defense"
+          ],
+          "effect": "Each Reflex chained during your turn grants +1 temporary defense MV toward absorbing the enemy's counter-attack."
+        },
+        {
+          "name": "Ki Reservoir",
+          "file": "Ki Reservoir",
+          "tier": 1,
+          "trigger": "Attack",
+          "tags": [
+            "Synergy"
+          ],
+          "effect": "If you do not draw a suitable chain card to Reflex after attacking with a Heart, you may immediately chain an eligible Reflex card directly from your hand instead."
+        },
+        {
+          "name": "Palm Strike",
+          "file": "Palm Strike",
+          "tier": 1,
+          "trigger": "Attack",
+          "tags": [
+            "Debuff"
+          ],
+          "effect": "When a Club is chained as a Reflex, it applies a 2 MV Frostbite debuff to the target enemy in addition to standard damage."
+        },
+        {
+          "name": "Redirect Momentum",
+          "file": "Redirect Momentum",
+          "tier": 1,
+          "trigger": "Reaction",
+          "tags": [
+            "Retaliation"
+          ],
+          "effect": "When defending against an enemy counter-attack, discard a 2 or 3 to redirect half of the incoming damage back to the attacker."
+        },
+        {
+          "name": "Rhythmic Breathing",
+          "file": "Rhythmic Breathing",
+          "tier": 1,
+          "trigger": "Attack",
+          "tags": [
+            "Draw"
+          ],
+          "effect": "Drawing a Heart during a Reflex chain triggers a bonus 1-card draw from the Life deck for all allies."
+        },
+        {
+          "name": "Sweeping Kick",
+          "file": "Sweeping Kick",
+          "tier": 1,
+          "trigger": "Attack",
+          "tags": [
+            "Crowd-control"
+          ],
+          "effect": "Chaining a Spade as a Reflex trips the target enemy, preventing it from executing its round-end assault this round."
+        },
+        {
+          "name": "Chi Burst",
+          "file": "Chi Burst",
+          "tier": 2,
+          "trigger": "Attack",
+          "tags": [
+            "Splash"
+          ],
+          "effect": "If you reach your maximum Reflex limit in a single turn, immediately deal 4 flat damage to all active secondary enemies."
+        },
+        {
+          "name": "Cooperative Flow",
+          "file": "Cooperative Flow",
+          "tier": 2,
+          "trigger": "Reaction",
+          "tags": [
+            "Synergy"
+          ],
+          "effect": "When an ally attacks, you may perform a Reflex into their attack: contribute a matching card from your hand, or chain any valid Reflex card drawn during that ally's action."
+        },
+        {
+          "name": "Open Hand Technique",
+          "file": "Open Hand Technique",
+          "tier": 2,
+          "trigger": "Attack",
+          "tags": [
+            "Defense"
+          ],
+          "effect": "If an attack and all of its chained Reflexes consist entirely of cards with rank 3 or lower, the strike bypasses the enemy counter-attack completely."
+        },
+        {
+          "name": "Swift Step",
+          "file": "Swift Step",
+          "tier": 2,
+          "trigger": "Reaction",
+          "tags": [
+            "Action-economy"
+          ],
+          "effect": "Completely parrying an enemy's counter-attack or assault down to 0 damage allows you to immediately take an additional attack action."
+        },
+        {
+          "name": "Water Form",
+          "file": "Water Form",
+          "tier": 2,
+          "trigger": "Reaction",
+          "tags": [
+            "Defense"
+          ],
+          "effect": "When taking counter-attack damage, you may pay the defense cost by returning cards from your hand to the top of the Life deck instead of discarding them to the Death deck."
+        },
+        {
+          "name": "Hundred Hand Strike",
+          "file": "Hundred Hand Strike",
+          "tier": 3,
+          "trigger": "Action",
+          "tags": [
+            "Burst"
+          ],
+          "effect": "Your Reflex limit is completely removed for this turn. Every card of rank 1–3 drawn can be continuously chained into the attack until you fail to draw one."
+        }
+      ]
     },
     {
       "slug": "ranger",
@@ -830,7 +992,148 @@ window.VERMIN_DATA = {
       "mechanic": "Same value cards that can be combined in attacks, do not take extra hand space. 3 twos take 1 hand space, 2 fours take 1 hand space. Additional combos can be learned",
       "playstyle": "",
       "ratings": [],
-      "skills": []
+      "skills": [
+        {
+          "name": "Cheap Shot",
+          "file": "Cheap Shot",
+          "tier": 1,
+          "trigger": "Attack",
+          "tags": [
+            "Debuff"
+          ],
+          "effect": "Landing a critical hit stuns the target enemy, reducing its counter-attack and assault MV by 3 for the remainder of the round."
+        },
+        {
+          "name": "Deadly Edge",
+          "file": "Deadly Edge",
+          "tier": 1,
+          "trigger": "Attack",
+          "tags": [
+            "Crit"
+          ],
+          "effect": "Spades included in any combo attack count for double their printed MV when calculating bonus critical damage."
+        },
+        {
+          "name": "Deflecting Flourish",
+          "file": "Deflecting Flourish",
+          "tier": 1,
+          "trigger": "Attack",
+          "tags": [
+            "Defense"
+          ],
+          "effect": "Attacking with a combo that contains at least two Clubs doubles the combined parry MV contributed by those Club cards."
+        },
+        {
+          "name": "Opportunity Strike",
+          "file": "Opportunity Strike",
+          "tier": 1,
+          "trigger": "Reaction",
+          "tags": [
+            "Crit"
+          ],
+          "effect": "When an ally misses a critical hit check, you may discard a Spade from your hand to allow them to immediately reroll that critical check."
+        },
+        {
+          "name": "Precision Parry",
+          "file": "Precision Parry",
+          "tier": 1,
+          "trigger": "Reaction",
+          "tags": [
+            "Retaliation"
+          ],
+          "effect": "When defending against an incoming attack, matching the exact required defense MV without excess allows you to immediately strike back with a quick single-card attack (no combos or suit effects)."
+        },
+        {
+          "name": "Straight Runner",
+          "file": "Straight Runner",
+          "tier": 1,
+          "trigger": "Passive",
+          "tags": [
+            "Combo"
+          ],
+          "effect": "You can form combo attacks using 3-card numerical straights (e.g., 2-3-4), subject to the standard 10 MV combo cap. Straights occupy only 1 slot of hand space while held together."
+        },
+        {
+          "name": "Twin Fang",
+          "file": "Twin Fang",
+          "tier": 1,
+          "trigger": "Attack",
+          "tags": [
+            "Crit"
+          ],
+          "effect": "Attacking with a matching pair of cards grants critical advantage: roll 3d12 instead of 2d12 and take the best two results for your critical check."
+        },
+        {
+          "name": "Assassinate",
+          "file": "Assassinate",
+          "tier": 2,
+          "trigger": "Attack",
+          "tags": [
+            "Execute"
+          ],
+          "effect": "A combo attack containing both a Club and a Spade that targets an enemy with less than 15 Life deals double total combo damage."
+        },
+        {
+          "name": "Chain Flurry",
+          "file": "Chain Flurry",
+          "tier": 2,
+          "trigger": "Passive",
+          "tags": [
+            "Action-economy"
+          ],
+          "effect": "Defeating an enemy with a combo attack immediately grants you an additional attack action this turn targeting another enemy."
+        },
+        {
+          "name": "Full House Mastery",
+          "file": "Full House Mastery",
+          "tier": 2,
+          "trigger": "Passive",
+          "tags": [
+            "Combo"
+          ],
+          "effect": "You can form and play Full House combos (a three-of-a-kind combined with a pair) as a single attack."
+        },
+        {
+          "name": "Limit Break",
+          "file": "Limit Break",
+          "tier": 2,
+          "trigger": "Passive",
+          "tags": [
+            "Combo"
+          ],
+          "effect": "Your maximum combo MV cap is permanently increased from 10 MV to 15 MV."
+        },
+        {
+          "name": "Riposte Window",
+          "file": "Riposte Window",
+          "tier": 2,
+          "trigger": "Reaction",
+          "tags": [
+            "Action-economy"
+          ],
+          "effect": "Completely parrying an enemy's counter-attack or assault down to 0 damage allows you to immediately take an additional attack action."
+        },
+        {
+          "name": "Three-of-a-Kind Mastery",
+          "file": "Three-of-a-Kind Mastery",
+          "tier": 2,
+          "trigger": "Attack",
+          "tags": [
+            "Crit"
+          ],
+          "effect": "Attacking with a three-of-a-kind (three cards of identical rank) guarantees an automatic critical hit and bypasses all enemy armor or shields."
+        },
+        {
+          "name": "Grand Slam",
+          "file": "Grand Slam",
+          "tier": 3,
+          "trigger": "Passive",
+          "tags": [
+            "Action-economy"
+          ],
+          "effect": "Upon completing a four-of-a-kind in your hand, you immediately unleash it as a free attack action without consuming your turn or normal card limits."
+        }
+      ]
     },
     {
       "slug": "tactician",
@@ -839,7 +1142,168 @@ window.VERMIN_DATA = {
       "mechanic": "During your preparation phase, you may choose not to swap a card with another player. Instead, place 1 card from your hand face down in front of any player as a Trap.",
       "playstyle": "",
       "ratings": [],
-      "skills": []
+      "skills": [
+        {
+          "name": "Battle Map",
+          "file": "Battle Map",
+          "tier": 1,
+          "trigger": "Preparation",
+          "tags": [
+            "Intel"
+          ],
+          "effect": "At the start of the round, reveal the top 3 cards of the Life deck and the top 2 cards of the Death deck; arrange them in any order you choose."
+        },
+        {
+          "name": "Calculated Gambit",
+          "file": "Calculated Gambit",
+          "tier": 1,
+          "trigger": "Preparation",
+          "tags": [
+            "Trap"
+          ],
+          "effect": "During Preparation, you may discard 1 additional card from your hand to place up to 2 cards face-down as Traps instead of 1."
+        },
+        {
+          "name": "Coordinated Strike",
+          "file": "Coordinated Strike",
+          "tier": 1,
+          "trigger": "Action",
+          "tags": [
+            "Maneuver"
+          ],
+          "effect": "Discard 1 card from your hand to allow two allies to immediately swap their turn order positions during the action phase."
+        },
+        {
+          "name": "Decoy Stance",
+          "file": "Decoy Stance",
+          "tier": 1,
+          "trigger": "Reaction",
+          "tags": [
+            "Defense"
+          ],
+          "effect": "When an enemy attacks an ally who has a Trap in front of them, roll the 2d12 dice. If the Life die wins, the enemy strikes the Trap instead, destroying the Trap card but completely negating damage to the player."
+        },
+        {
+          "name": "Delayed Blast Trap",
+          "file": "Delayed Blast Trap",
+          "tier": 1,
+          "trigger": "Passive",
+          "tags": [
+            "MV"
+          ],
+          "effect": "When a Trap is triggered for damage, add +2 flat MV to that strike for every full player turn that has passed since the Trap was set."
+        },
+        {
+          "name": "Honed Caltrops",
+          "file": "Honed Caltrops",
+          "tier": 1,
+          "trigger": "Reaction",
+          "tags": [
+            "MV"
+          ],
+          "effect": "When an ally attacks, they may trigger a Diamond Trap set in front of them to add its printed MV directly into their attack."
+        },
+        {
+          "name": "Logistics Master",
+          "file": "Logistics Master",
+          "tier": 1,
+          "trigger": "Preparation",
+          "tags": [
+            "Support"
+          ],
+          "effect": "During Preparation, you may conduct up to two separate card swaps between any players at the table instead of the standard single swap."
+        },
+        {
+          "name": "Resupply Cache",
+          "file": "Resupply Cache",
+          "tier": 1,
+          "trigger": "Reaction",
+          "tags": [
+            "Draw"
+          ],
+          "effect": "Traps set with Heart cards gain their suit's draw effect when triggered, allowing the triggering player to draw cards equal to the Trap's printed MV."
+        },
+        {
+          "name": "Unseen Snare",
+          "file": "Unseen Snare",
+          "tier": 1,
+          "trigger": "Preparation",
+          "tags": [
+            "Trap"
+          ],
+          "effect": "During Preparation, instead of drawing a card from the Life deck into your hand, you may place the top card of the Life deck directly face-down in front of any player as a blind Trap."
+        },
+        {
+          "name": "Vanguard's Pivot",
+          "file": "Vanguard's Pivot",
+          "tier": 1,
+          "trigger": "Preparation",
+          "tags": [
+            "Maneuver"
+          ],
+          "effect": "During Preparation, swap 1 card with an ally; both you and that ally may immediately choose to swap positions in this round's turn order."
+        },
+        {
+          "name": "Banner of Inspiration",
+          "file": "Banner of Inspiration",
+          "tier": 2,
+          "trigger": "Preparation",
+          "tags": [
+            "Buff"
+          ],
+          "effect": "During Preparation, place a card face-down as a Banner beside the Life deck. All attacks containing that card's suit gain +2 flat MV. Discard the Banner at the start of your next Preparation phase."
+        },
+        {
+          "name": "Deflection Matrix",
+          "file": "Deflection Matrix",
+          "tier": 2,
+          "trigger": "Reaction",
+          "tags": [
+            "Defense"
+          ],
+          "effect": "When a Trap is triggered to defend, you may deflect the attack instead of parrying it, causing the enemy to target the next player in line. Deflections can be chained if the next player also triggers a Trap."
+        },
+        {
+          "name": "Double Time",
+          "file": "Double Time",
+          "tier": 2,
+          "trigger": "Passive",
+          "tags": [
+            "Action-economy"
+          ],
+          "effect": "You gain 2 attack actions per turn. You may place a card face-down as a Trap instead of performing an attack action."
+        },
+        {
+          "name": "Feign Retreat",
+          "file": "Feign Retreat",
+          "tier": 2,
+          "trigger": "Reaction",
+          "tags": [
+            "Maneuver"
+          ],
+          "effect": "When you parry an enemy attack down to 0 damage, you may immediately swap your entire hand with all cards currently held by an ally who has not acted yet this round."
+        },
+        {
+          "name": "Standard Bearer",
+          "file": "Standard Bearer",
+          "tier": 2,
+          "trigger": "Action",
+          "tags": [
+            "Trap"
+          ],
+          "effect": "If Banner of Inspiration is active, you may place any number of cards from your hand face-down as Traps on your turn, provided their suits match the active Banner."
+        },
+        {
+          "name": "Sympathetic Trigger",
+          "file": "Sympathetic Trigger",
+          "tier": 2,
+          "trigger": "Reaction",
+          "tags": [
+            "Trap"
+          ],
+          "effect": "When an ally makes an attack, if you hold any cards in your hand of the exact same rank as their played card, you may immediately place them face-down as Traps in front of any player."
+        }
+      ]
     }
   ]
 };
