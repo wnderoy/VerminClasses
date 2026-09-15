@@ -1,5 +1,5 @@
 window.VERMIN_DATA = {
-  "generated": "2026-09-15T14:48:36.930Z",
+  "generated": "2026-09-15T16:31:31.333Z",
   "source": "/home/wnder/Documents/repos/obsVault",
   "tags": [
     "Ace",
@@ -35,6 +35,29 @@ window.VERMIN_DATA = {
   ],
   "keywords": [
     {
+      "slug": "affiliation",
+      "name": "Affiliation",
+      "color": "grey",
+      "terms": [
+        "Affiliation",
+        "affiliation",
+        "magic or power"
+      ],
+      "explanation": "Whether a class triggers red (Magic) or black (Power) suit effects. Magic classes use Hearts and Diamonds; Power classes use Clubs and Spades. The Ranger is the only class with both."
+    },
+    {
+      "slug": "blind-attack",
+      "name": "Blind Attack",
+      "color": "gold",
+      "terms": [
+        "Blind Attack",
+        "blind attack",
+        "blind attacks",
+        "blind draw"
+      ],
+      "explanation": "The Barbarian's class mechanic: attack with a random draw of 2 cards from the Life deck instead of choosing from your hand."
+    },
+    {
       "slug": "clubs",
       "name": "Clubs",
       "color": "blue",
@@ -45,6 +68,70 @@ window.VERMIN_DATA = {
         "♣"
       ],
       "explanation": "Clubs are one of the two blue suits. EDIT ME — this is placeholder text."
+    },
+    {
+      "slug": "combo",
+      "name": "Combo",
+      "color": "purple",
+      "terms": [
+        "Combo",
+        "combo",
+        "combos",
+        "combination",
+        "combinations",
+        "multi card attack"
+      ],
+      "explanation": "Two or more cards of the same rank played as a single attack, utilising every suit involved at once. The total combined MV cannot exceed **10**. Allowed combinations: Twos 2, 2, 2 — Threes 3, 3, 3 — Fours 4, 4 — Fives 5, 5. Limit Break raises the cap to 15, which makes Fives 5, 5, 5 legal."
+    },
+    {
+      "slug": "counter-attack",
+      "name": "Counter Attack",
+      "color": "grey",
+      "terms": [
+        "Counter Attack",
+        "counter attack",
+        "counter-attack",
+        "counter attack value",
+        "counter attacks",
+        "CA"
+      ],
+      "explanation": "The damage an enemy deals back after surviving an attack. Shown on the enemy card as **CA**. To defend, a player must discard cards from their hand whose total value equals or exceeds the incoming CA — which is why holding cards is what keeps you alive."
+    },
+    {
+      "slug": "critical-hit",
+      "name": "Critical Hit",
+      "color": "blue",
+      "terms": [
+        "Critical Hit",
+        "critical hit",
+        "crit",
+        "critical",
+        "crits"
+      ],
+      "explanation": "The Spade suit effect. Roll 2D12: a higher light die adds the value of the highest card in the attack to its damage. A tie triggers Mana Cleave instead."
+    },
+    {
+      "slug": "death-deck",
+      "name": "Death Deck",
+      "color": "blue",
+      "terms": [
+        "Death Deck",
+        "death deck",
+        "discard pile"
+      ],
+      "explanation": "The discard pile, and the source of the party's strongest cards. Defeated enemies are added to it, which means Face cards (MV 11–13) can be pulled back into the Life deck by Diamonds late in a fight."
+    },
+    {
+      "slug": "defeat",
+      "name": "Defeat",
+      "color": "grey",
+      "terms": [
+        "Defeat",
+        "defeat",
+        "defeated",
+        "defeated enemy"
+      ],
+      "explanation": "When an enemy's Life reaches 0 it is defeated and added to the Death deck. The battle ends once all enemies are defeated."
     },
     {
       "slug": "diamonds",
@@ -59,6 +146,45 @@ window.VERMIN_DATA = {
       "explanation": "Diamonds are one of the two red suits. EDIT ME — this is placeholder text."
     },
     {
+      "slug": "dice",
+      "name": "Dice",
+      "color": "gold",
+      "terms": [
+        "Dice",
+        "dice",
+        "die",
+        "2d12",
+        "light die",
+        "death die"
+      ],
+      "explanation": "Two twelve-sided dice, one light and one death. Higher light die: critical hit. Higher death die: no effect. A tie triggers Mana Cleave, doubling the damage."
+    },
+    {
+      "slug": "frost",
+      "name": "Frost",
+      "color": "blue",
+      "terms": [
+        "Frost",
+        "frost",
+        "frostbite",
+        "frostbitten",
+        "frosted"
+      ],
+      "explanation": "A debuff family applied to enemies. Frostbite permanently reduces an enemy's CA by the stated amount. Frosted enemies roll 2D12 before counter-attacking — see Winters Plague."
+    },
+    {
+      "slug": "hand-size",
+      "name": "Hand Size",
+      "color": "green",
+      "terms": [
+        "Hand Size",
+        "hand size",
+        "hand limit",
+        "hand space"
+      ],
+      "explanation": "The number of cards a player may hold. The standard hand size is 5. You cannot draw during preparation while your hand is full — see Overfill for the one exception. A full hand is also what lets you defend, so hand size is effectively your health."
+    },
+    {
       "slug": "hearts",
       "name": "Hearts",
       "color": "red",
@@ -68,7 +194,29 @@ window.VERMIN_DATA = {
         "hearts",
         "♥"
       ],
-      "explanation": "Hearts are one of the two red suits. EDIT ME — this is placeholder text."
+      "explanation": "Attacking with the heart suite and activating its effect will draw cards for the player up to the MV of the attack,"
+    },
+    {
+      "slug": "life-deck",
+      "name": "Life Deck",
+      "color": "red",
+      "terms": [
+        "Life Deck",
+        "life deck",
+        "life pile"
+      ],
+      "explanation": "The draw pile players draw from. Refilling it from the Death deck with Diamond effects is a crucial cooperative objective — if the Life deck is empty, nobody can draw, and nobody can defend."
+    },
+    {
+      "slug": "lifeline",
+      "name": "Lifeline",
+      "color": "green",
+      "terms": [
+        "Lifeline",
+        "lifeline",
+        "lifelines"
+      ],
+      "explanation": "The built-in mechanic for healing or deck rescue, ensuring all-Power or unconventional parties still have viable recovery options."
     },
     {
       "slug": "magic",
@@ -79,7 +227,56 @@ window.VERMIN_DATA = {
         "magic",
         "arcane"
       ],
-      "explanation": "Classes marked Magic draw on the Arcane deck. They tend to trade raw stats for reach and utility, and scale off MV. EDIT ME — this is placeholder text."
+      "explanation": "Classes marked Magic can utilise RED suits, hears and diamonds."
+    },
+    {
+      "slug": "mana-value",
+      "name": "Mana Value",
+      "color": "grey",
+      "terms": [
+        "Mana Value",
+        "mv",
+        "mana value",
+        "mana values"
+      ],
+      "explanation": "The face value of a card, and the damage it deals when played as an attack. Aces count as 1 MV."
+    },
+    {
+      "slug": "out",
+      "name": "Out",
+      "color": "purple",
+      "terms": [
+        "Out",
+        "out",
+        "rendered unable to play",
+        "unable to play"
+      ],
+      "explanation": "Failing to defend — you could not discard enough cards to cover an incoming attack. You take a direct hit and are out for the remainder of the battle. The rest of the party can still win, but it is hard. If you survive the fight, your character keeps a scar."
+    },
+    {
+      "slug": "overfill",
+      "name": "Overfill",
+      "color": "green",
+      "terms": [
+        "Overfill",
+        "overfill",
+        "overfilled",
+        "over fill",
+        "overfills"
+      ],
+      "explanation": "Drawing more cards than your maximum hand size. Overfill is temporary: if you hold 4, a Cleric's Heart can take you to 5 and you may still draw to 6. Once those cards are played you cannot get back to 6 on your own."
+    },
+    {
+      "slug": "parry",
+      "name": "Parry",
+      "color": "blue",
+      "terms": [
+        "Parry",
+        "parry",
+        "parries",
+        "parried"
+      ],
+      "explanation": "Reducing an incoming attack by the MV of your own. The Club suit effect parries an enemy's counter-attack; a Trap can be spent to parry as well."
     },
     {
       "slug": "power",
@@ -93,6 +290,17 @@ window.VERMIN_DATA = {
       "explanation": "Classes marked Power win through the board rather than through spells. They lean on stats, tempo and direct damage. EDIT ME — this is placeholder text."
     },
     {
+      "slug": "reflex",
+      "name": "Reflex",
+      "color": "green",
+      "terms": [
+        "Reflex",
+        "reflex",
+        "reflexes"
+      ],
+      "explanation": "An attack that does not trigger a counter-attack and does not cost a turn."
+    },
+    {
       "slug": "spades",
       "name": "Spades",
       "color": "blue",
@@ -103,6 +311,66 @@ window.VERMIN_DATA = {
         "♠"
       ],
       "explanation": "Spades are one of the two blue suits. EDIT ME — this is placeholder text."
+    },
+    {
+      "slug": "suit-effect",
+      "name": "Suit Effect",
+      "color": "grey",
+      "terms": [
+        "Suit Effect",
+        "suit effect",
+        "suit effects",
+        "suit trigger",
+        "suit triggers"
+      ],
+      "explanation": "The bonus that fires when you attack with a card of a given suit. Magic (red) classes trigger Diamonds and Hearts; Power (black) classes trigger Clubs and Spades. Aces trigger their suit effect regardless of the player's class."
+    },
+    {
+      "slug": "summon",
+      "name": "Summon",
+      "color": "purple",
+      "terms": [
+        "Summon",
+        "summon",
+        "summons",
+        "summoning",
+        "summoned",
+        "undead"
+      ],
+      "explanation": "A friendly unit placed in front of an enemy. They attack that enemy on the summoner's turn, dealing MV damage. When the enemy dies, they discard. You may control at most 3 summoned units. If you would exceed 3, choose and discard down to 3."
+    },
+    {
+      "slug": "tier",
+      "name": "Tier",
+      "color": "grey",
+      "terms": [
+        "Tier",
+        "tier",
+        "tiers"
+      ],
+      "explanation": "How deep into a class a skill sits. At absolute maximum level a player holds 5 abilities: Tier 1, Tier 1, Tier 2, Tier 2, Tier 3. Most players run 2–3 skills and rarely reach a Tier 3."
+    },
+    {
+      "slug": "trap",
+      "name": "Trap",
+      "color": "gold",
+      "terms": [
+        "Trap",
+        "trap",
+        "traps"
+      ],
+      "explanation": "A card placed face down in front of any player during your preparation phase, instead of trading. A Trap can be triggered on that player's turn, at any point — either to deal its value as damage, or to use that value to parry. Traps do trigger suit effects. There is no limit on how many Traps you may place."
+    },
+    {
+      "slug": "vulnerable-turn",
+      "name": "Vulnerable Turn",
+      "color": "purple",
+      "terms": [
+        "Vulnerable Turn",
+        "vulnerable turn",
+        "vulnerable"
+      ],
+      "explanation": "Choosing not to attack or play any card on your turn. The DM picks an enemy, and it attacks you freely."
     }
   ],
   "classes": [
@@ -172,7 +440,7 @@ window.VERMIN_DATA = {
           "tags": [
             "Crit"
           ],
-          "effect": "Excess damage dealt beyond a target enemy's remaining Life during a blind attack carries over directly to an adjacent enemy."
+          "effect": "Excess damage dealt beyond a target enemy's remaining Life during a blind attack carries over directly to another enemy."
         },
         {
           "name": "Blood Rage",
@@ -234,7 +502,8 @@ window.VERMIN_DATA = {
           ],
           "effect": "When your attack lands the killing blow on an enemy, immediately perform a free blind attack targeting another active enemy."
         }
-      ]
+      ],
+      "icon": "icons/barbarian.png"
     },
     {
       "slug": "cleric",
@@ -292,7 +561,7 @@ window.VERMIN_DATA = {
           "tags": [
             "Sacrifice"
           ],
-          "effect": "Discard 1 card from your hand to absorb up to 4 incoming counter-attack damage aimed at an adjacent ally."
+          "effect": "Discard 1 card from your hand to absorb up to 4 incoming counter-attack damage aimed at the next player in line."
         },
         {
           "name": "Swords of fallen alies",
@@ -374,7 +643,8 @@ window.VERMIN_DATA = {
           ],
           "effect": "Playing the 10 of spades (or higher) casts Snow grave, turning all opponets MV to 0 until your next turn. can be cast once pre battle."
         }
-      ]
+      ],
+      "icon": "icons/cleric.png"
     },
     {
       "slug": "lich",
@@ -614,7 +884,8 @@ window.VERMIN_DATA = {
           ],
           "effect": "Discard 4 cards of rank 10 or higher to achieve Lichdom for the remainder of the battle. All attacks made by you and your Undead summons have their damage rounded up to 10 MV, and all Darkness damage dealt by your skills is doubled."
         }
-      ]
+      ],
+      "icon": "icons/lich.png"
     },
     {
       "slug": "mage",
@@ -623,7 +894,8 @@ window.VERMIN_DATA = {
       "mechanic": "The mage attacks do not deal damage to enemies. Instead, the mage can cast power full spells using specific card combinations.",
       "playstyle": "",
       "ratings": [],
-      "skills": []
+      "skills": [],
+      "icon": "icons/mage.png"
     },
     {
       "slug": "monk",
@@ -783,7 +1055,8 @@ window.VERMIN_DATA = {
           ],
           "effect": "Your Reflex limit is completely removed for this turn. Every card of rank 1–3 drawn can be continuously chained into the attack until you fail to draw one."
         }
-      ]
+      ],
+      "icon": "icons/monk.png"
     },
     {
       "slug": "ranger",
@@ -983,7 +1256,8 @@ window.VERMIN_DATA = {
           ],
           "effect": "When you play an Ace as an attack, choose to trigger either both Magic effects (Heart Draw + Diamond Recycle) or both Power effects (Club Parry + Spade Crit) simultaneously."
         }
-      ]
+      ],
+      "icon": "icons/ranger.png"
     },
     {
       "slug": "rogue",
@@ -1133,7 +1407,8 @@ window.VERMIN_DATA = {
           ],
           "effect": "Upon completing a four-of-a-kind in your hand, you immediately unleash it as a free attack action without consuming your turn or normal card limits."
         }
-      ]
+      ],
+      "icon": "icons/rogue.png"
     },
     {
       "slug": "tactician",
@@ -1264,16 +1539,6 @@ window.VERMIN_DATA = {
           "effect": "When a Trap is triggered to defend, you may deflect the attack instead of parrying it, causing the enemy to target the next player in line. Deflections can be chained if the next player also triggers a Trap."
         },
         {
-          "name": "Double Time",
-          "file": "Double Time",
-          "tier": 2,
-          "trigger": "Passive",
-          "tags": [
-            "Action-economy"
-          ],
-          "effect": "You gain 2 attack actions per turn. You may place a card face-down as a Trap instead of performing an attack action."
-        },
-        {
           "name": "Feign Retreat",
           "file": "Feign Retreat",
           "tier": 2,
@@ -1302,8 +1567,19 @@ window.VERMIN_DATA = {
             "Trap"
           ],
           "effect": "When an ally makes an attack, if you hold any cards in your hand of the exact same rank as their played card, you may immediately place them face-down as Traps in front of any player."
+        },
+        {
+          "name": "Double Time",
+          "file": "Double Time",
+          "tier": 3,
+          "trigger": "Passive",
+          "tags": [
+            "Action-economy"
+          ],
+          "effect": "You gain 2 attack actions per turn. You may place a card face-down as a Trap instead of performing an attack action."
         }
-      ]
+      ],
+      "icon": "icons/tactician.png"
     }
   ]
 };
