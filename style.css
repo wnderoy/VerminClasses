@@ -1,0 +1,736 @@
+/* Vermin class codex — white on black, Undertale/Deltarune UI discipline.
+   Rules of the house: square corners, 3-4px white borders, no shadows,
+   no gradients, and a full colour inversion when something is selected. */
+
+:root {
+  --bg: #000;
+  --fg: #fff;
+  --dim: #9c9c9c;
+  --faint: #7a7a7a; /* 4.9:1 on black — the darkest grey that still passes AA */
+  --soul: #ff2d2d;
+
+  --pixel: 'Press Start 2P', ui-monospace, 'Courier New', monospace;
+  --prose: 'VT323', ui-monospace, 'Courier New', monospace;
+
+  --line: 4px;
+  --gap: 16px;
+
+  /* Keyword colours. A note in Rules/Keywords picks one by name, so this list
+     is the other half of KW_COLORS in build.mjs — add to both or the build
+     warns. Every one clears WCAG AA on black; raw #0000ff is only 2.4:1 and
+     would be unreadable, hence the lighter blue. */
+  --kw-red: #ff5f5f;
+  --kw-blue: #5b9dff;
+  --kw-gold: #ffd23f;
+  --kw-green: #4ade80;
+  --kw-purple: #c084fc;
+  --kw-grey: #b8b8b8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0 auto;
+  padding: 20px 16px 64px;
+  max-width: 1120px;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--prose);
+  font-size: 21px;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+}
+
+/* Undertale narration bullet — used for the flavour copy. */
+.star::before {
+  content: '* ';
+  color: var(--fg);
+}
+
+a {
+  color: inherit;
+}
+
+/* --- masthead ------------------------------------------------------------ */
+
+.masthead {
+  border-bottom: var(--line) solid var(--fg);
+  padding-bottom: 14px;
+  margin-bottom: 28px;
+}
+
+.masthead h1 {
+  font-family: var(--pixel);
+  font-size: 30px;
+  line-height: 1.25;
+  margin: 0;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.masthead .sub {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--pixel);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: var(--dim);
+  text-transform: uppercase;
+}
+
+.masthead .blurb {
+  margin: 14px 0 0;
+  color: var(--dim);
+  max-width: 62ch;
+}
+
+/* --- class grid ---------------------------------------------------------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 720px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  }
+}
+
+.card {
+  border: var(--line) solid var(--fg);
+  padding: 18px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--bg);
+}
+
+.card__head {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.card__id {
+  min-width: 0;
+}
+
+.card__name {
+  font-family: var(--pixel);
+  font-size: 17px;
+  line-height: 1.3;
+  margin: 0 0 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+
+/* --- pixel sprites ------------------------------------------------------- */
+
+.sprite {
+  width: 64px;
+  height: 64px;
+  flex: none;
+  fill: currentColor;
+  color: var(--fg);
+}
+
+.hero .sprite {
+  width: 104px;
+  height: 104px;
+}
+
+img.sprite {
+  image-rendering: pixelated;
+  object-fit: contain;
+}
+
+/* --- affiliation badges -------------------------------------------------- */
+/* Outlined, with the word itself coloured by the keyword machinery below.
+   Magic and Power are keywords, so "==Magic==" lights up red on its own. */
+
+.badge {
+  display: inline-block;
+  font-family: var(--pixel);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 7px;
+  border: 2px solid var(--fg);
+  /* Not nowrap. Beside a 64px sprite the card head leaves this only ~170px on
+     a 320px screen, and the pixel font is square — "Magic & Power" would set a
+     min-content width wider than the whole card. It breaks to two lines. */
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* Magic/Power take their colour from the `.kw` span inside, not from here —
+   inverting the badge would put blue text on a white field and sink it below
+   AA. The combined "Magic & Power" badge inverts, which is the one case where
+   no single colour can win. */
+.badge--both {
+  background: var(--fg);
+  color: var(--bg);
+  border-style: double;
+  border-width: 6px;
+  padding: 1px 4px;
+}
+
+.badge--count {
+  border-color: var(--faint);
+  color: var(--dim);
+}
+
+.card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* --- play style + mechanic ----------------------------------------------- */
+
+.playstyle {
+  margin: 0;
+  color: var(--fg);
+}
+
+.mechanic {
+  border-left: var(--line) solid var(--fg);
+  padding: 2px 0 2px 12px;
+}
+
+.mechanic__label {
+  display: block;
+  font-family: var(--pixel);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--dim);
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+
+.mechanic p {
+  margin: 0;
+  color: var(--dim);
+}
+
+/* --- ratings ------------------------------------------------------------- */
+
+/* One criterion per line, always. The criterion names are long ("Turn Economy
+   & Action Economy") and two columns inside a 350px card clips them. */
+.ratings {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px;
+  margin-top: auto;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 18px;
+  color: var(--dim);
+  min-width: 0; /* without this the nowrap label forces the grid wider than the card */
+}
+
+/* Wrap rather than ellipsize: a half-shown criterion name is worse than a
+   second line. */
+.rating__label {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.rating__pips {
+  flex: none;
+  display: flex;
+  gap: 2px;
+}
+
+/* A pip is lit or dark — same chunky pixel as the sprites. */
+.pip {
+  width: 7px;
+  height: 12px;
+  border: 1px solid var(--faint);
+}
+
+.pip--on {
+  background: var(--fg);
+  border-color: var(--fg);
+}
+
+/* --- buttons ------------------------------------------------------------- */
+/* Deltarune select box: the entire element flips to white when chosen. */
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 18px;
+  border: var(--line) solid var(--fg);
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--pixel);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:hover,
+.btn:focus-visible,
+.btn.is-active {
+  background: var(--fg);
+  color: var(--bg);
+  outline: none;
+}
+
+/* The SOUL appears on the option you are pointing at. */
+.btn .soul {
+  color: var(--soul);
+  opacity: 0;
+}
+
+.btn:hover .soul,
+.btn:focus-visible .soul,
+.btn.is-active .soul {
+  opacity: 1;
+}
+
+.btn--devote {
+  margin-top: 4px;
+  width: 100%;
+}
+
+/* --- class detail page --------------------------------------------------- */
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: var(--pixel);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  padding: 0 4px;
+  margin-bottom: 18px;
+}
+
+.back:hover,
+.back:focus-visible {
+  background: var(--fg);
+  color: var(--bg);
+  outline: none;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: var(--line) solid var(--fg);
+  padding: 20px 18px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 640px) {
+  .hero {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 24px;
+  }
+}
+
+.hero__body {
+  min-width: 0;
+  flex: 1;
+}
+
+.hero__name {
+  font-family: var(--pixel);
+  font-size: 24px;
+  line-height: 1.3;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  word-break: break-word;
+}
+
+.hero .ratings {
+  margin-top: 18px;
+}
+
+/* --- filters ------------------------------------------------------------- */
+
+.filters {
+  border: var(--line) solid var(--fg);
+  padding: 14px;
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-group__label {
+  font-family: var(--pixel);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--dim);
+  text-transform: uppercase;
+  width: 100%;
+}
+
+/* Filter chips: 44px tall so they clear a finger. */
+.chip {
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 3px solid var(--fg);
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--pixel);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Dashed border marks the chip under the cursor; an already-pressed chip is
+   inverted, so it doesn't need the hint. */
+.chip:not([aria-pressed='true']):hover,
+.chip:focus-visible {
+  outline: none;
+  border-style: dashed;
+}
+
+.chip[aria-pressed='true'] {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.filters__actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-top: 2px solid var(--faint);
+  padding-top: 14px;
+}
+
+.filters__count {
+  font-family: var(--pixel);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+  text-transform: uppercase;
+  margin-left: auto;
+}
+
+/* --- skill tables -------------------------------------------------------- */
+/* One table per tier: Skill | Tags | Effect. Trigger is parsed by the build
+   but not shown. Below 640px each row folds into a stacked block. */
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.tier__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--pixel);
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: var(--line) solid var(--fg);
+}
+
+.tier__count {
+  font-size: 12px;
+  color: var(--dim);
+  white-space: nowrap;
+}
+
+.skill-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  /* Fixed, so the colgroup widths below are obeyed rather than guessed. */
+  table-layout: fixed;
+}
+
+.skill-table th {
+  font-family: var(--pixel);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+  font-weight: normal;
+  padding: 0 12px 8px 0;
+  border-bottom: 2px solid var(--faint);
+}
+
+.skill-table td {
+  padding: 14px 12px 14px 0;
+  border-bottom: 2px solid #262626;
+  vertical-align: top;
+}
+
+.skill-table tr:last-child td {
+  border-bottom: 0;
+}
+
+/* Fixed layout keeps the three columns aligned down the table; the widths are
+   the whole design decision. Tags get the most room because that is what you
+   scan for, and they are chips rather than text. */
+.col-skill { width: 30%; }
+.col-tags { width: 30%; }
+.col-effect { width: 40%; }
+
+.skill__name {
+  font-family: var(--pixel);
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  /* Without min-width:0 a nowrap grid/flex child can push past its column. */
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.skill__src {
+  display: block;
+  margin-top: 6px;
+  font-size: 19px;
+  color: var(--faint);
+  overflow-wrap: break-word;
+}
+
+.skill__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill__effect {
+  margin: 0;
+  color: var(--fg);
+}
+
+/* Tags are the thing you filter by, so they get chip weight — a solid border
+   and the same font and size as the effect text beside them, not the dim
+   hairline badge they used to be. Prose at 21px, not the pixel font: the pixel
+   font is monospaced-square, so the same word at a readable pixel size is
+   nearly twice as wide, and "Sacrifice" would eat the whole column. */
+.tag-chip {
+  display: inline-block;
+  font-family: var(--prose);
+  font-size: 21px;
+  line-height: 1.2;
+  padding: 4px 8px;
+  border: 2px solid var(--fg);
+  max-width: 100%;
+  /* Wraps rather than bursting the cell. The chip border is the affordance
+     here, so the dotted underline would just be noise. */
+  overflow-wrap: break-word;
+}
+
+.tag-chip .kw {
+  text-decoration: none;
+}
+
+@media (max-width: 639px) {
+  /* Fold each row into a card. The header row is redundant once every cell
+     carries its own label. */
+  .skill-table,
+  .skill-table tbody,
+  .skill-table tr,
+  .skill-table td {
+    display: block;
+    width: auto;
+  }
+
+  .skill-table thead {
+    display: none;
+  }
+
+  .skill-table {
+    border-top: var(--line) solid var(--fg);
+  }
+
+  .skill-table tr {
+    padding: 16px 0;
+    border-bottom: var(--line) solid var(--fg);
+  }
+
+  .skill-table td {
+    padding: 0 0 10px;
+    border-bottom: 0;
+  }
+
+  .skill-table td:last-child {
+    padding-bottom: 0;
+  }
+
+  .skill-table td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font-family: var(--pixel);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin-bottom: 6px;
+  }
+}
+
+/* --- keywords ------------------------------------------------------------ */
+/* A keyword is a term with a note in Rules/Keywords. Everywhere it appears it
+   takes that note's colour and becomes a button that explains itself. */
+
+.kw {
+  /* Reset — this is a <button>, but it must read as a word, not a control. */
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  text-align: inherit;
+  /* The dotted underline is the only affordance saying "this is tappable".
+     Non-colour, so it still reads for a colour-blind or greyscale reader. */
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.kw--red { color: var(--kw-red); }
+.kw--blue { color: var(--kw-blue); }
+.kw--gold { color: var(--kw-gold); }
+.kw--green { color: var(--kw-green); }
+.kw--purple { color: var(--kw-purple); }
+.kw--grey { color: var(--kw-grey); }
+
+.kw:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Open state: the word gets a wash behind it and a solid underline, so the
+   popover is visibly anchored to something. */
+.kw[aria-expanded='true'] {
+  background: rgba(255, 255, 255, 0.16);
+  text-decoration-style: solid;
+}
+
+/* On a white field (the popover, an inverted badge) the palette entries are
+   too light to read. Darken just those, so a keyword inside its own
+   explanation still works. */
+.on-light .kw--red { color: #c00; }
+.on-light .kw--blue { color: #06c; }
+.on-light .kw--gold { color: #8a6100; }
+.on-light .kw--green { color: #16772f; }
+.on-light .kw--purple { color: #6b21a8; }
+.on-light .kw--grey { color: #4a4a4a; }
+
+/* The explanation. Inverted like a selected Deltarune menu row, which also
+   means it needs no shadow to separate it from the black page. */
+.pop {
+  position: fixed;
+  z-index: 40;
+  max-width: min(360px, calc(100vw - 24px));
+  background: var(--fg);
+  color: var(--bg);
+  border: var(--line) solid var(--fg);
+  padding: 12px 14px 14px;
+}
+
+.pop[hidden] {
+  display: none;
+}
+
+.pop__name {
+  font-family: var(--pixel);
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+  color: var(--bg); /* the keyword's own colour would be invisible on white */
+}
+
+.pop__body {
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.3;
+}
+
+/* --- empty state --------------------------------------------------------- */
+
+.empty {
+  border: var(--line) dashed var(--faint);
+  padding: 34px 20px;
+  text-align: center;
+}
+
+.empty h2 {
+  font-family: var(--pixel);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+  color: var(--fg);
+}
+
+.empty p {
+  margin: 0 auto;
+  max-width: 48ch;
+  color: var(--dim);
+}
+
+/* --- footer -------------------------------------------------------------- */
+
+.foot {
+  margin-top: 40px;
+  border-top: 2px solid var(--faint);
+  padding-top: 14px;
+  font-size: 17px;
+  color: var(--faint);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
