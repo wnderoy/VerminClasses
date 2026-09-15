@@ -1,5 +1,7 @@
 # Vermin — Class Codex
 
+https://wnderoy.github.io/VerminClasses/
+
 A static site for the Vermin tabletop rules: one card per class on the index,
 and a skill list per class with tier and tag filters.
 
